@@ -1,5 +1,10 @@
 const http = require("http");
 const url = require("url");
+const tools = require("./module/tool");
+const xxx = require("./module/request");
+const db = require("axios");
+
+console.log(db);
 
 http
   .createServer((req, res) => {
@@ -12,6 +17,10 @@ http
     res.write("周周周");
 
     res.write("<head><meta charset='UTF-8'></head>");
+
+    const api = tools.formatAPI("x/y/z");
+
+    res.write(api);
 
     res.end();
   })
